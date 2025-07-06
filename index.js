@@ -1,9 +1,12 @@
 const express = require('express');
+var cors = require('cors')
+
 const { addTodo, deleteTodo, getTodos, updateTodo } = require('./in-memory-db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
   res.send('A simple todo app');
