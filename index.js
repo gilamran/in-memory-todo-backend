@@ -13,20 +13,24 @@ app.get('/', (req, res) => {
 });
 
 app.get('/todos', (req, res) => {
+  console.log('get todos was called');
   res.send(getTodos());
 });
 
 app.post('/todos', (req, res) => {
+  console.log('post todos was called');
   addTodo(req.body);
   res.send(getTodos());
 });
 
 app.delete('/todos/:id', (req, res) => {
+  console.log('delete todos was called');
   deleteTodo(req.params.id);
   res.send(getTodos());
 });
 
 app.put('/todos/:id', (req, res) => {
+  console.log('put todos was called');
   updateTodo(req.params.id, req.body);
   res.send(getTodos());
 });
